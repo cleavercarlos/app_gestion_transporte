@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  tipo_carga: one
+  destino: MyString
+  fecha_salida: 2024-10-05
+  fecha_llegada: 2024-10-05
+  vehiculo: one
+  user: one
+
+two:
+  descripcion: MyText
+  tipo_carga: two
+  destino: MyString
+  fecha_salida: 2024-10-05
+  fecha_llegada: 2024-10-05
+  vehiculo: two
+  user: two

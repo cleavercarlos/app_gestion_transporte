@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @trayecto %>
+
+<div>
+  <%= link_to "Edit this trayecto", edit_trayecto_path(@trayecto) %> |
+  <%= link_to "Back to trayectos", trayectos_path %>
+
+  <%= button_to "Destroy this trayecto", @trayecto, method: :delete %>
+</div>

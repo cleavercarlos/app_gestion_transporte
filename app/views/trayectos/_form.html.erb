@@ -1,0 +1,52 @@
+<%= form_with(model: trayecto) do |form| %>
+  <% if trayecto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(trayecto.errors.count, "error") %> prohibited this trayecto from being saved:</h2>
+
+      <ul>
+        <% trayecto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :tipo_carga_id, style: "display: block" %>
+    <%= form.text_field :tipo_carga_id %>
+  </div>
+
+  <div>
+    <%= form.label :destino, style: "display: block" %>
+    <%= form.text_field :destino %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_salida, style: "display: block" %>
+    <%= form.date_field :fecha_salida %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_llegada, style: "display: block" %>
+    <%= form.date_field :fecha_llegada %>
+  </div>
+
+  <div>
+    <%= form.label :vehiculo_id, style: "display: block" %>
+    <%= form.text_field :vehiculo_id %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

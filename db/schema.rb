@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_05_224002) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_05_232358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_224002) do
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "trayectos", force: :cascade do |t|
+    t.text "descripcion"
+    t.bigint "tipo_carga_id", null: false
+    t.string "destino"
+    t.date "fecha_salida"
+    t.date "fecha_llegada"
+    t.bigint "vehiculo_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tipo_carga_id"], name: "index_trayectos_on_tipo_carga_id"
+    t.index ["user_id"], name: "index_trayectos_on_user_id"
+    t.index ["vehiculo_id"], name: "index_trayectos_on_vehiculo_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +56,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_05_224002) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "trayectos", "tipo_cargas"
+  add_foreign_key "trayectos", "users"
+  add_foreign_key "trayectos", "vehiculos"
 end
