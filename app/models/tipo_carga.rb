@@ -1,2 +1,12 @@
+# == Schema Information
+#
+# Table name: tipo_cargas
+#
+#  id          :bigint           not null, primary key
+#  nombre      :string
+#  descripcion :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class TipoCarga < ApplicationRecord
 end
