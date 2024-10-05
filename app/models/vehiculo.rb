@@ -9,4 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Vehiculo < ApplicationRecord
+     #validaciones 
+     validates :placa, presence: true, uniqueness: true
+     validates :modelo, presence: true
 end

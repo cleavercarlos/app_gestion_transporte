@@ -9,4 +9,7 @@
 #  updated_at  :datetime         not null
 #
 class TipoCarga < ApplicationRecord
+    #validaciones 
+    validates :nombre, presence: true, uniqueness: true
+    validates :descripcion, presence: true
 end
