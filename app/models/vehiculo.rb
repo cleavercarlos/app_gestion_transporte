@@ -12,4 +12,7 @@ class Vehiculo < ApplicationRecord
      #validaciones 
      validates :placa, presence: true, uniqueness: true
      validates :modelo, presence: true
+#relaciones
+has_many :trayectos
+
 end
