@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :tipo_carga_id, style: "display: block" %>
-    <%= form.text_field :tipo_carga_id %>
+    <%= form.collection_select :user_id, TipoCarga.all, :id, :nombre, prompt: "selecciona un tipo de carga"%>
   </div>
 
   <div>
@@ -38,12 +38,12 @@
 
   <div>
     <%= form.label :vehiculo_id, style: "display: block" %>
-    <%= form.text_field :vehiculo_id %>
+    <%= form.collection_select :user_id, Vehiculo.all, :id, :placa, prompt: "selecciona un vehiculo"%>
   </div>
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.collection_select :user_id, User.conductor, :id, :email, prompt: "selecciona un conductor"%>
   </div>
 
   <div>
