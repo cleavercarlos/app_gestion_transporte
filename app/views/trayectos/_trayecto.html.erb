@@ -1,37 +1,30 @@
-<div id="<%= dom_id trayecto %>">
-  <p>
-    <strong>Descripcion:</strong>
-    <%= trayecto.descripcion %>
-  </p>
-
-  <p>
-    <strong>Tipo carga:</strong>
-    <%= trayecto.tipo_carga.nombre %>
-  </p>
-
-  <p>
-    <strong>Destino:</strong>
-    <%= trayecto.destino %>
-  </p>
-
-  <p>
-    <strong>Fecha salida:</strong>
-    <%= trayecto.fecha_salida %>
-  </p>
-
-  <p>
-    <strong>Fecha llegada:</strong>
-    <%= trayecto.fecha_llegada %>
-  </p>
-
-  <p>
-    <strong>Vehiculo:</strong>
-    <%= trayecto.vehiculo.placa %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= trayecto.user.email %>
-  </p>
-
+<div id="<%= dom_id trayecto %>" class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Tipo carga</th>
+          <th>Destino</th>
+          <th>Fecha salida</th>
+          <th>Fecha llegada</th>
+          <th>Vehículo</th>
+          <th>Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= trayecto.descripcion %></td>
+          <td><%= trayecto.tipo_carga.nombre %></td>
+          <td><%= trayecto.destino %></td>
+          <td><%= trayecto.fecha_salida %></td>
+          <td><%= trayecto.fecha_llegada %></td>
+          <td><%= trayecto.vehiculo.placa %></td>
+          <td><%= trayecto.user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+

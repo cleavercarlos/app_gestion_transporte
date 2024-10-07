@@ -1,16 +1,44 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Trayectos" %>
-
-<h1>Trayectos</h1>
-
-<div id="trayectos">
-  <% @trayectos.each do |trayecto| %>
-    <%= render trayecto %>
-    <p>
-      <%= link_to "Show this trayecto", trayecto %>
-    </p>
-  <% end %>
+<div class="container text-center">
+  <h1 class="display-4 my-4">Trayectos</h1>
 </div>
 
-<%= link_to "New trayecto", new_trayecto_path %>
+<div class="container">
+  <div class="d-flex justify-content-end mb-3">
+    <%= link_to "New Trayecto", new_trayecto_path, class: "btn btn-success" %> <!-- Botón alineado a la derecha -->
+  </div>
+
+  <div class="table-responsive" style="max-height: 400px; overflow-y: auto;"> <!-- Scroll en la tabla -->
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Descripción</th>
+          <th>Tipo carga</th>
+          <th>Destino</th>
+          <th>Fecha salida</th>
+          <th>Fecha llegada</th>
+          <th>Vehículo</th>
+          <th>Usuario</th>
+          <th>Acciones</th> <!-- Nueva columna para las acciones -->
+        </tr>
+      </thead>
+      <tbody>
+        <% @trayectos.each do |trayecto| %>
+          <tr>
+            <td><%= trayecto.descripcion %></td>
+            <td><%= trayecto.tipo_carga.nombre %></td>
+            <td><%= trayecto.destino %></td>
+            <td><%= trayecto.fecha_salida %></td>
+            <td><%= trayecto.fecha_llegada %></td>
+            <td><%= trayecto.vehiculo.placa %></td>
+            <td><%= trayecto.user.email %></td>
+            <td>
+              <%= link_to "Show", trayecto, class: "btn btn-primary btn-sm" %> <!-- Acción para mostrar trayecto -->
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p style="color: green"><%= notice %></p>

@@ -1,11 +1,65 @@
-<% content_for :title, "New trayecto" %>
+<% content_for :title, "New Trayecto" %>
 
-<h1>New trayecto</h1>
+<div class="container text-center">
+  <h1 class="display-4 my-4">Nuevo Trayecto</h1>
+</div>
 
-<%= render "form", trayecto: @trayecto %>
+<div class="container d-flex justify-content-center">
+  <div class="col-md-8">
+    <%= form_with(model: @trayecto, local: true, class: "mt-4") do |form| %>
+      <% if @trayecto.errors.any? %>
+        <div class="alert alert-danger">
+          <h4><%= pluralize(@trayecto.errors.count, "error") %> prohibited this trayecto from being saved:</h4>
+          <ul>
+            <% @trayecto.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<br>
+      <div class="form-group">
+        <%= form.label :descripcion %>
+        <%= form.text_area :descripcion, class: "form-control", rows: 3 %>
+      </div>
 
-<div>
-  <%= link_to "Back to trayectos", trayectos_path %>
+      <div class="form-group">
+        <%= form.label :tipo_carga_id %>
+        <%= form.collection_select :tipo_carga_id, TipoCarga.all, :id, :nombre, prompt: "Selecciona un tipo de carga", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :destino %>
+        <%= form.text_field :destino, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :fecha_salida %>
+        <%= form.date_field :fecha_salida, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :fecha_llegada %>
+        <%= form.date_field :fecha_llegada, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :vehiculo_id %>
+        <%= form.collection_select :vehiculo_id, Vehiculo.all, :id, :placa, prompt: "Selecciona un vehículo", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :user_id %>
+        <%= form.collection_select :user_id, User.conductor, :id, :email, prompt: "Selecciona un conductor", class: "form-control" %>
+      </div>
+
+      <div class="form-group text-center">
+        <%= form.submit "Guardar Trayecto", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container text-center mt-4">
+  <%= link_to "Back to Trayectos", trayectos_path, class: "btn btn-secondary" %>
 </div>

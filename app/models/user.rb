@@ -19,15 +19,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #relaciones
-  has_many :trayectos
+  # Relaciones
+  has_many :trayectos, dependent: :destroy
 
-  #logica enum
-  enum tipo_usuario: { conductor: 'conductor', supervisor: 'supervisor' } 
+  # Lógica enum
+  enum tipo_usuario: { conductor: 'conductor', supervisor: 'supervisor' }
   after_initialize :set_default_role, if: :new_record?
-  
-  def set_default_role
-    self.tipo_usuario ||= :conductor 
-  end
 
+  def set_default_role
+    self.tipo_usuario ||= 'conductor' # El valor por defecto para `tipo_usuario` es 'conductor'
+  end
 end
